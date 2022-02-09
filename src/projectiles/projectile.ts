@@ -7,7 +7,7 @@ export abstract class Projectile extends GameObject{
     
     // Field 
     private damage       : number = 15
-    private speed        : number = 10
+    private speed        : number = 15
     private parentTurret : Turret
     private direction    : Vector;
 
@@ -35,6 +35,6 @@ export abstract class Projectile extends GameObject{
     }
 
     public onCollision(target: GameObject): void {
-        
+        console.log("onCollision")
     }
 }

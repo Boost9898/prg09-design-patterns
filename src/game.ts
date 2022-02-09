@@ -12,6 +12,8 @@ export class Game {
     public gameObjects: GameObject[] = []
 
     constructor() {
+        console.log("test")
+        
         this.gameObjects.push(new BulletAmmo(new Vector(800, 200)))
         this.gameObjects.push(new RocketAmmo(new Vector(500, 200)))
         this.gameObjects.push(new MissileAmmo(new Vector(500, 500)))

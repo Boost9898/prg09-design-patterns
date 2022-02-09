@@ -74,19 +74,19 @@ export class Tank extends GameObject{
     }
 
     private handleKeyDown(e : KeyboardEvent) {
-        if(e.key == "ArrowLeft")        this.turnLeft   = true
-        else if (e.key == "ArrowRight") this.turnRight  = true
+        if(e.key == "a")                this.turnLeft   = true
+        else if (e.key == "d")          this.turnRight  = true
         
-        if(e.key == "ArrowUp")          this.accelerate = true
+        if(e.key == "w")                this.accelerate = true
 
         if(e.key == " ")                this.canFire    = true
     }
     
     private handleKeyUp(e : KeyboardEvent) {
-        if(e.key == "ArrowLeft")        this.turnLeft   = false
-        else if (e.key == "ArrowRight") this.turnRight  = false
+        if(e.key == "a")        this.turnLeft   = false
+        else if (e.key == "d") this.turnRight  = false
 
-        if(e.key == "ArrowUp")          this.accelerate = false
+        if(e.key == "w")          this.accelerate = false
 
         if(e.key == " ")  {
             this.canFire = false
