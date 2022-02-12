@@ -7,8 +7,9 @@ export class Txt extends HTMLElement {
         this.showText();
     }
     setColor(text, color) {
-        this.text = this.color.applyColor(this.text);
         this.color = color;
+        this.style.color = this.color.applyColor();
+        this.text = text;
         this.showText();
     }
     showText() {

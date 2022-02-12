@@ -1,0 +1,4 @@
+txt-component::after {
+    content: "\a";
+    white-space: pre;
+}
