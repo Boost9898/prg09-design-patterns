@@ -10,5 +10,8 @@
     "include": [
         "**/*", 
         "../game.ts"    
-    ]
+    ],
+    "exclude": [
+        "./_prototype"
+    ] 
 }

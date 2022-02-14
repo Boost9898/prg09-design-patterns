@@ -6,8 +6,8 @@ import { Vector }       from "../vector.js";
 export abstract class Projectile extends GameObject{
     
     // Field 
-    private damage       : number = 15
-    private speed        : number = 15
+    protected damage     : number = 15
+    protected speed      : number = 15
     private parentTurret : Turret
     private direction    : Vector;
 
