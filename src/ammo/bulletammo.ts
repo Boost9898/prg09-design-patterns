@@ -1,7 +1,7 @@
 import { GameObject }       from "../gameobject.js";
-import { Bullet } from "../projectiles/bullet.js";
 import { Tank }             from "../tank.js";
 import { Vector }           from "../vector.js";
+import { BulletWeapon } from "../weapon/bulletweapon.js";
 import { Ammunition }       from "./ammunition.js";
 
 export class BulletAmmo extends Ammunition {
@@ -14,7 +14,7 @@ export class BulletAmmo extends Ammunition {
         
         // if collossion with instance of tank > set target (Tank) to projectile (bullet)
         if(target instanceof Tank) {
-            target.setProjectile(new Bullet(target))
+            target.setWeapon(new BulletWeapon)
         }
     }
 }

@@ -1,14 +1,14 @@
 import { Tank } from "../tank.js";
-import { BulletWeapon } from "../weapon/bulletweapon.js";
+import { MissileWeapon } from "../weapon/missileweapon.js";
 import { Ammunition } from "./ammunition.js";
-export class BulletAmmo extends Ammunition {
+export class MissileAmmo extends Ammunition {
     constructor(position) {
         super("ammo-bullet", position);
     }
     onCollision(target) {
-        console.log("bulletammo.ts");
+        console.log("missileammo.ts");
         if (target instanceof Tank) {
-            target.setWeapon(new BulletWeapon);
+            target.setWeapon(new MissileWeapon);
         }
     }
 }
