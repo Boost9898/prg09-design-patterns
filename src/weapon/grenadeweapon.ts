@@ -1,9 +1,9 @@
-import { Missile } from "../projectiles/missile.js";
+import { Grenade } from "../projectiles/grenade.js";
 import { Projectile } from "../projectiles/projectile";
 import { Tank } from "../tank";
 
-export class MissileWeapon {
+export class GrenadeWeapon {
     public pew(tank : Tank) : Projectile {
-        return new Missile(tank);
+        return new Grenade(tank);
     }
 }

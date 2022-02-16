@@ -1,7 +1,7 @@
 import { Game }         from "./game.js";
 import { GameObject }   from "./gameobject.js";
 import { Bullet }       from "./projectiles/bullet.js";
-import { Missile }      from "./projectiles/missile.js";
+import { Grenade }      from "./projectiles/grenade.js";
 import { Rocket }       from "./projectiles/rocket.js";
 import { Tank }         from "./tank.js";
 import { Vector }       from "./vector.js";
@@ -34,7 +34,7 @@ export class Enemy extends GameObject {
         if(
             target instanceof Bullet && this.type == "enemy-light" ||
             target instanceof Rocket && this.type == "enemy-medium" ||
-            target instanceof Missile && this.type == "enemy-heavy"
+            target instanceof Grenade && this.type == "enemy-heavy"
             ) 
         {
             let index = this.game.gameObjects.indexOf(this)

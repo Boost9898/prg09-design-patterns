@@ -1,6 +1,6 @@
 import { GameObject } from "./gameobject.js";
 import { Bullet } from "./projectiles/bullet.js";
-import { Missile } from "./projectiles/missile.js";
+import { Grenade } from "./projectiles/grenade.js";
 import { Rocket } from "./projectiles/rocket.js";
 export class Enemy extends GameObject {
     constructor(game, type, position, player) {
@@ -19,7 +19,7 @@ export class Enemy extends GameObject {
     onCollision(target) {
         if (target instanceof Bullet && this.type == "enemy-light" ||
             target instanceof Rocket && this.type == "enemy-medium" ||
-            target instanceof Missile && this.type == "enemy-heavy") {
+            target instanceof Grenade && this.type == "enemy-heavy") {
             let index = this.game.gameObjects.indexOf(this);
             if (index > -1) {
                 this.game.gameObjects.splice(index, 1);

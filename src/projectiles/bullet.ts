@@ -7,4 +7,9 @@ export class Bullet extends Projectile {
         super("bullet", tank)
         console.log("bullet.ts")
     }
+
+    public update(): void {
+        super.goForward()
+        super.update()
+    }
 }

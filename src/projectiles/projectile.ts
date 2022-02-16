@@ -9,7 +9,7 @@ export abstract class Projectile extends GameObject{
     protected damage     : number = 15
     protected speed      : number = 15
     private parentTurret : Turret
-    private direction    : Vector;
+    protected direction  : Vector;
 
     // Properties
     public get Damage()         : number        { return this.damage }
@@ -29,10 +29,13 @@ export abstract class Projectile extends GameObject{
     }
 
     public update() {
-        this.position = this.Position.add(this.direction.scale(this.speed))
         super.update();
-
     }
+
+    public goForward() {
+        this.position = this.Position.add(this.direction.scale(this.speed))
+    }
+    
 
     public onCollision(target: GameObject): void {
         console.log("onCollision")

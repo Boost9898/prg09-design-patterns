@@ -15,8 +15,10 @@ export class Projectile extends GameObject {
     get Damage() { return this.damage; }
     get ParentTurret() { return this.parentTurret; }
     update() {
-        this.position = this.Position.add(this.direction.scale(this.speed));
         super.update();
+    }
+    goForward() {
+        this.position = this.Position.add(this.direction.scale(this.speed));
     }
     onCollision(target) {
         console.log("onCollision");
