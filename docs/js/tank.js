@@ -13,6 +13,7 @@ export class Tank extends GameObject {
         this.canFire = false;
         this.previousState = false;
         this.rotationSpeed = 2;
+        this.canShoot = true;
         this.speed = new Vector(0, 0);
         this.game = game;
         this.position.x = visualViewport.width / 2;
@@ -80,7 +81,18 @@ export class Tank extends GameObject {
         }
     }
     fire() {
-        this.game.gameObjects.push(this.weapon.pew(this));
+        console.log("Can shoot is now: " + this.canShoot);
+        if (this.canShoot) {
+            this.canShoot = false;
+            console.log("Can shoot is now: " + this.canShoot);
+            console.log(this.weapon.getFireSpeed());
+            this.game.gameObjects.push(this.weapon.pew(this));
+            console.log("Spawn Bullet");
+            setTimeout(() => {
+                this.canShoot = true;
+                console.log("Can shoot is now: " + this.canShoot);
+            }, this.weapon.getFireSpeed());
+        }
         console.log(this.weapon);
     }
     onCollision(target) {

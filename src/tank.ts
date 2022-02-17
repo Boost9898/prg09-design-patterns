@@ -20,6 +20,7 @@ export class Tank extends GameObject{
     private turret          : Turret
     private game            : Game
     private weapon          : Weapon // create empty variable, weapon
+    private canShoot        : Boolean = true // let tank shoot or not
     
     protected speed         : Vector    = new Vector(0, 0)
     // setProjectile: any;
@@ -88,10 +89,10 @@ export class Tank extends GameObject{
     }
     
     private handleKeyUp(e : KeyboardEvent) {
-        if(e.key == "a")        this.turnLeft   = false
-        else if (e.key == "d") this.turnRight  = false
+        if(e.key == "a")                this.turnLeft   = false
+        else if (e.key == "d")          this.turnRight  = false
 
-        if(e.key == "w")          this.accelerate = false
+        if(e.key == "w")                this.accelerate = false
 
         if(e.key == " ")  {
             this.canFire = false
@@ -99,8 +100,23 @@ export class Tank extends GameObject{
         }    
     }
 
+
     private fire() {
-        this.game.gameObjects.push(this.weapon.pew(this)) // TODO is this right
+        console.log("Can shoot is now: " + this.canShoot)
+        if(this.canShoot) {
+            this.canShoot = false
+            console.log("Can shoot is now: " + this.canShoot)
+            console.log(this.weapon.getFireSpeed())
+            this.game.gameObjects.push(this.weapon.pew(this))
+            console.log("Spawn Bullet")
+            setTimeout(() => {
+                this.canShoot = true
+                console.log("Can shoot is now: " + this.canShoot)
+                
+            }, this.weapon.getFireSpeed());
+            
+        } 
+        //this.game.gameObjects.push(this.projectileType)
         console.log(this.weapon)
     }
 
