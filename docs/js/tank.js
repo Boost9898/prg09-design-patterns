@@ -13,8 +13,9 @@ export class Tank extends GameObject {
         this.canFire = false;
         this.previousState = false;
         this.rotationSpeed = 2;
-        this.canShoot = true;
+        this.canPew = true;
         this.speed = new Vector(0, 0);
+        this.audio = new Audio("./audio/pew.mp3");
         this.game = game;
         this.position.x = visualViewport.width / 2;
         this.position.y = visualViewport.height / 2;
@@ -54,6 +55,7 @@ export class Tank extends GameObject {
         this.keepInWindow();
         if (this.canFire && !this.previousState) {
             this.fire();
+            this.audio.play();
             this.previousState = true;
         }
         super.update();
@@ -81,16 +83,12 @@ export class Tank extends GameObject {
         }
     }
     fire() {
-        console.log("Can shoot is now: " + this.canShoot);
-        if (this.canShoot) {
-            this.canShoot = false;
-            console.log("Can shoot is now: " + this.canShoot);
+        if (this.canPew) {
+            this.canPew = false;
             console.log(this.weapon.getFireSpeed());
             this.game.gameObjects.push(this.weapon.pew(this));
-            console.log("Spawn Bullet");
             setTimeout(() => {
-                this.canShoot = true;
-                console.log("Can shoot is now: " + this.canShoot);
+                this.canPew = true;
             }, this.weapon.getFireSpeed());
         }
         console.log(this.weapon);

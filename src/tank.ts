@@ -20,9 +20,10 @@ export class Tank extends GameObject{
     private turret          : Turret
     private game            : Game
     private weapon          : Weapon // create empty variable, weapon
-    private canShoot        : Boolean = true // let tank shoot or not
-    
+    private canPew          : Boolean = true // let tank shoot or not
     protected speed         : Vector    = new Vector(0, 0)
+    private audio = new Audio("./audio/pew.mp3");
+    
     // setProjectile: any;
 
     // Properties
@@ -73,6 +74,7 @@ export class Tank extends GameObject{
         // Shooting
         if(this.canFire && !this.previousState) {
             this.fire()
+            this.audio.play()
             this.previousState = true
         }
 
@@ -102,17 +104,15 @@ export class Tank extends GameObject{
 
 
     private fire() {
-        console.log("Can shoot is now: " + this.canShoot)
-        if(this.canShoot) {
-            this.canShoot = false
-            console.log("Can shoot is now: " + this.canShoot)
+
+        if(this.canPew) {
+            this.canPew = false
+
             console.log(this.weapon.getFireSpeed())
             this.game.gameObjects.push(this.weapon.pew(this))
-            console.log("Spawn Bullet")
+            
             setTimeout(() => {
-                this.canShoot = true
-                console.log("Can shoot is now: " + this.canShoot)
-                
+                this.canPew = true
             }, this.weapon.getFireSpeed());
             
         } 

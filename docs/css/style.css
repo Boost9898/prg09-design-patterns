@@ -27,8 +27,8 @@ tank-body {
   background-size: contain;
   background-repeat: no-repeat;
 
-  width: 60px;
-  height: 51px;
+  width: 125px;
+  height: 90px;
   background-image: url("../images/tank_0.png");
 }
 tank-turret {

@@ -13,6 +13,7 @@ export class Enemy extends GameObject {
     private game: Game
     private player: Tank
     private type: string
+    private audio = new Audio("./audio/oof.mp3");
 
     constructor(game: Game, type: string, position: Vector, player: Tank) {
         super(type)
@@ -37,11 +38,16 @@ export class Enemy extends GameObject {
             target instanceof Grenade && this.type == "enemy-heavy"
             ) 
         {
+            this.audio.play();
             let index = this.game.gameObjects.indexOf(this)
             if(index > -1) { 
                 this.game.gameObjects.splice(index,1)
             }
             this.div.remove()
+        }
+
+        if (target instanceof Grenade && this.type == "enemy-heavy") {
+            console.warn("oof")
         }
     }
 }

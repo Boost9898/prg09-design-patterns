@@ -21,6 +21,5 @@ export class Projectile extends GameObject {
         this.position = this.Position.add(this.direction.scale(this.speed));
     }
     onCollision(target) {
-        console.log("onCollision");
     }
 }
