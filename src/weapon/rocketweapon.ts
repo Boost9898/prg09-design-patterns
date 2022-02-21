@@ -2,7 +2,7 @@ import { Rocket } from "../projectiles/rocket.js";
 import { Projectile } from "../projectiles/projectile";
 import { Tank } from "../tank";
 
-export class RocketWeapon {
+export class RocketWeapon implements Weapon {
 
     private fireSpeed : number = 2000
 
